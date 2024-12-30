@@ -30,29 +30,29 @@ function SideBar() {
   return (
     <div>
       <aside className="sidebar">
-          <h1>Amado <span>Furniture</span></h1>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Checkout</a></li>
-          </ul>
-          <button>%Discount%</button>
-          <button>New this week</button>
-        </aside>
+        <h1>Amado <span>Furniture</span></h1>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">Cart</a></li>
+          <li><a href="#">Checkout</a></li>
+        </ul>
+        <button>%Discount%</button>
+        <button>New this week</button>
+      </aside>
     </div>
   );
 };
 
 function ProductListing() {
   return (
-    <div>
-      <main className="content">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </main>
+    <div className='product-listing'>
+      <main className='content'>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </main>
     </div>
   );
 };
