@@ -15,9 +15,13 @@ const products = [
 
 export default function App() {
   return (
-    <div className="container">
-      <SideBar />
-      <ProductListing />
+    <div>
+      <div className="container">
+        <SideBar />
+        <ProductListing />
+      </div>
+      <Subscribe />
+      <Footer />
     </div>
   );
 };
@@ -61,4 +65,30 @@ function ProductCard({ product }) {
               <p>From ${product.price}</p>
             </div>
   )
+}
+
+function Subscribe() {
+  return (
+    <div>
+      <div>
+        <h2>Subscribe for a 25% Discount</h2>
+        <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.</p>
+      </div>
+
+      <div>
+        <input type="text" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <div>
+      <footer>
+          <p>© 2021 Amado. All Rights Reserved.</p>
+        </footer>
+    </div>
+  );
 }
