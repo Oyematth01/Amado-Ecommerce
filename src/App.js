@@ -15,7 +15,7 @@ const products = [
 
 export default function App() {
   return (
-    <div>
+    <div className='app'>
       <div className="container">
         <SideBar />
         <ProductListing />
@@ -28,16 +28,18 @@ export default function App() {
 
 function SideBar() {
   return (
-    <div>
+    <div className='sidebar-container'>
       <aside className="sidebar">
         <h1>Amado <span>Furniture</span></h1>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Product</a></li>
-          <li><a href="#">Cart</a></li>
-          <li><a href="#">Checkout</a></li>
-        </ul>
+        <nav className='amado-nav'>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Checkout</a></li>
+          </ul>
+        </nav>
         <button>%Discount%</button>
         <button>New this week</button>
       </aside>
@@ -60,10 +62,10 @@ function ProductListing() {
 function ProductCard({ product }) {
   return (
     <div className="card" key={product.id}>
-              <img src={product.image} alt={product.title} />
-              <h3>{product.title}</h3>
-              <p>From ${product.price}</p>
-            </div>
+      <img src={product.image} alt={product.title} />
+      <h3>{product.title}</h3>
+      <p>From ${product.price}</p>
+    </div>
   )
 }
 
