@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 
 const products = [
@@ -15,49 +16,61 @@ const products = [
 
 export default function App() {
   return (
-    <div className='app'>
-      <div className="container">
-        <SideBar />
-        <ProductListing />
+    <Router>
+      <div className='app'>
+        <div className="container">
+          <SideBar />
+          <ProductListing products={products} />
+        </div>
+        <Subscribe />
+        <Footer />
       </div>
-      <Subscribe />
-      <Footer />
-    </div>
+    </Router>
   );
-};
+}
 
 function SideBar() {
   return (
-    <div className='sidebar-container'>
+    <div className='header'>
       <aside className="sidebar">
-        <h1>Amado <span>Furniture</span></h1>
+        <div className="logo">
+          <Link to="/">
+            <img src={`${process.env.PUBLIC_URL}/img/core-img/logo.png`} alt="Logo" />
+          </Link>
+        </div>
         <nav className='amado-nav'>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="#">Checkout</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/shop">Shop</Link></li>
+            <li><Link to="/product">Product</Link></li>
+            <li><Link to="/cart">Cart</Link></li>
+            <li><Link to="/checkout">Checkout</Link></li>
           </ul>
         </nav>
+        <Switch>
+          <Route path="/shop" component={Shop} />
+          <Route path="/product" component={Product} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
+        </Switch>
         <button>%Discount%</button>
         <button>New this week</button>
       </aside>
     </div>
   );
-};
+}
 
-function ProductListing() {
+function ProductListing({ products }) {
   return (
-    <div className='product-listing'>
-      <main className='content'>
+    <div className="product-listing">
+      <main className="content">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </main>
     </div>
   );
-};
+}
 
 function ProductCard({ product }) {
   return (
@@ -66,7 +79,23 @@ function ProductCard({ product }) {
       <h3>{product.title}</h3>
       <p>From ${product.price}</p>
     </div>
-  )
+  );
+}
+
+function Shop() {
+  return <div>Shop Page</div>;
+}
+
+function Product() {
+  return <div>Product Page</div>;
+}
+
+function Cart() {
+  return <div>Cart Page</div>;
+}
+
+function Checkout() {
+  return <div>Checkout Page</div>;
 }
 
 function Subscribe() {
