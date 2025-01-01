@@ -16,16 +16,16 @@ const products = [
 
 export default function App() {
   return (
-    <Router>
-      <div className='app'>
-        <div className="container">
+    <div className='app'>
+      <Router>
+        <div>
           <SideBar />
           <ProductListing products={products} />
+          <Subscribe />
+          <Footer />
         </div>
-        <Subscribe />
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
